@@ -1,0 +1,350 @@
+/* ==========================================================
+   JML Sazón — Comida Ecuatoriana
+   Colors come from the Ecuador flag + the wood sign on the flyer.
+   ========================================================== */
+:root {
+  --yellow: #ffd100;
+  --blue: #034ea2;
+  --red: #e4232f;
+  --wood: #3b2416;
+  --wood-dark: #24150c;
+  --cream: #fff8ec;
+  --sand: #f6e7cf;
+  --ink: #2a1a10;
+  --muted: #6e5a4a;
+  --radius: 18px;
+  --shadow: 0 10px 30px rgba(36, 21, 12, 0.18);
+  --script: "Kaushan Script", cursive;
+  --sans: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --max: 1120px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.65;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--blue); }
+h1, h2, h3 { line-height: 1.2; margin: 0 0 0.5em; }
+p { margin: 0 0 1em; }
+
+.container { width: min(100% - 32px, var(--max)); margin-inline: auto; }
+
+/* ---------- Flag stripe ---------- */
+.flag-stripe {
+  height: 6px;
+  background: linear-gradient(90deg, var(--yellow) 0 50%, var(--blue) 50% 75%, var(--red) 75% 100%);
+}
+
+/* ---------- Header / nav ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--wood-dark);
+  box-shadow: 0 2px 14px rgba(0,0,0,.35);
+}
+.nav {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding: 12px 0;
+}
+.brand {
+  display: flex; align-items: baseline; gap: 8px;
+  text-decoration: none; color: #fff;
+}
+.brand .jml {
+  font-family: var(--script); font-size: 1.9rem; letter-spacing: 1px;
+  background: linear-gradient(90deg, var(--yellow) 0 38%, #3d8bff 38% 66%, #ff4b55 66%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.brand .sazon { font-family: var(--script); font-size: 1.6rem; color: #fff; }
+
+.nav-links { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
+.nav-links a {
+  display: block; padding: 8px 14px; border-radius: 999px;
+  color: #f3e6d4; text-decoration: none; font-weight: 500; font-size: .95rem;
+  transition: background .2s, color .2s;
+}
+.nav-links a:hover { background: rgba(255,255,255,.08); color: #fff; }
+.nav-links a[aria-current="page"] { background: var(--yellow); color: var(--wood-dark); }
+
+.nav-toggle {
+  display: none; background: none; border: 2px solid rgba(255,255,255,.3);
+  color: #fff; border-radius: 10px; padding: 6px 10px; font-size: 1.2rem; cursor: pointer;
+}
+
+@media (max-width: 820px) {
+  .nav-toggle { display: block; }
+  .nav-links {
+    display: none; position: absolute; left: 0; right: 0; top: 100%;
+    flex-direction: column; background: var(--wood-dark); padding: 8px 16px 16px;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 12px 14px; }
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 22px; border-radius: 999px; font-weight: 600;
+  text-decoration: none; border: 2px solid transparent; cursor: pointer;
+  font-family: inherit; font-size: 1rem;
+  transition: transform .15s, box-shadow .15s, background .2s;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0,0,0,.18); }
+.btn-primary { background: var(--yellow); color: var(--wood-dark); }
+.btn-blue { background: var(--blue); color: #fff; }
+.btn-whatsapp { background: #25d366; color: #fff; }
+.btn-outline { border-color: currentColor; color: #fff; background: transparent; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* ---------- Hero ---------- */
+.hero {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(255,209,0,.18), transparent 50%),
+    linear-gradient(160deg, var(--wood) 0%, var(--wood-dark) 100%);
+  color: #fff; padding: 64px 0 72px;
+  overflow: hidden; /* keeps the tilted flyer from poking past the screen edge */
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center;
+}
+.eyebrow {
+  display: inline-block; font-size: .8rem; letter-spacing: .18em; text-transform: uppercase;
+  background: rgba(255,255,255,.1); padding: 6px 14px; border-radius: 999px; margin-bottom: 18px;
+}
+.hero h1 { font-family: var(--script); font-weight: 400; font-size: clamp(2.6rem, 6vw, 4.4rem); }
+.hero h1 .accent { color: var(--yellow); }
+.hero .lead { font-size: 1.15rem; color: #f0e2cf; max-width: 34ch; }
+.hero-flyer {
+  border-radius: var(--radius); box-shadow: 0 25px 60px rgba(0,0,0,.5);
+  transform: rotate(2deg); border: 6px solid #fff;
+}
+@media (max-width: 820px) {
+  .hero { padding: 40px 0 48px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero-flyer { transform: none; }
+}
+
+/* ---------- Page banner (inner pages) ---------- */
+.page-banner {
+  background: linear-gradient(160deg, var(--wood) 0%, var(--wood-dark) 100%);
+  color: #fff; padding: 56px 0 48px; text-align: center;
+}
+.page-banner h1 { font-family: var(--script); font-weight: 400; font-size: clamp(2.4rem, 6vw, 3.6rem); margin: 0; }
+.page-banner p { color: #f0e2cf; margin: 8px 0 0; }
+
+/* ---------- Sections ---------- */
+.section { padding: 72px 0; }
+.section-alt { background: var(--sand); }
+.section-title { text-align: center; margin-bottom: 40px; }
+.section-title h2 { font-family: var(--script); font-weight: 400; font-size: clamp(2rem, 5vw, 2.8rem); color: var(--wood); }
+.section-title p { color: var(--muted); max-width: 56ch; margin-inline: auto; }
+
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+@media (max-width: 820px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+.card {
+  background: #fff; border-radius: var(--radius); padding: 28px;
+  box-shadow: var(--shadow); position: relative; overflow: hidden;
+}
+.card::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 5px;
+  background: linear-gradient(90deg, var(--yellow) 0 50%, var(--blue) 50% 75%, var(--red) 75%);
+}
+.card .icon { font-size: 2.4rem; margin-bottom: 8px; }
+.card h3 { font-size: 1.35rem; color: var(--wood); }
+.card .sub { color: var(--muted); font-size: .9rem; margin-top: -6px; }
+
+/* Dish feature (photo crop from the flyer) */
+.dish-photo {
+  height: 220px; border-radius: 12px; margin: -4px 0 18px;
+  background-image: url("../images/flyer.jpg"); background-size: 220%;
+}
+.dish-photo.ceviche { background-position: 38% 72%; }
+.dish-photo.encebollado { background-position: 92% 54%; }
+
+/* ---------- Menu ---------- */
+.menu-group { margin-bottom: 48px; }
+.menu-group h2 {
+  font-family: var(--script); font-weight: 400; color: var(--wood);
+  font-size: 2.2rem; border-bottom: 3px dashed #e3cfae; padding-bottom: 8px;
+}
+.menu-item {
+  display: grid; grid-template-columns: 1fr auto; gap: 4px 16px;
+  padding: 16px 0; border-bottom: 1px solid #ecdcc3;
+}
+.menu-item h3 { font-size: 1.1rem; margin: 0; }
+.menu-item .price { font-weight: 700; color: var(--red); font-size: 1.1rem; }
+.menu-item p { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: .95rem; }
+.tag {
+  display: inline-block; font-size: .72rem; font-weight: 600; padding: 2px 10px;
+  border-radius: 999px; background: var(--yellow); color: var(--wood-dark); margin-left: 8px;
+  vertical-align: middle;
+}
+.note {
+  background: #fff; border-left: 5px solid var(--blue); border-radius: 10px;
+  padding: 16px 20px; color: var(--muted);
+}
+
+/* ---------- Steps ---------- */
+.steps { counter-reset: step; display: grid; gap: 20px; }
+.step { display: flex; gap: 18px; align-items: flex-start; }
+.step::before {
+  counter-increment: step; content: counter(step);
+  flex: none; width: 46px; height: 46px; border-radius: 50%;
+  display: grid; place-items: center; font-weight: 700; font-size: 1.2rem;
+  background: var(--blue); color: #fff;
+}
+.step h3 { margin: 6px 0 4px; font-size: 1.15rem; }
+.step p { margin: 0; color: var(--muted); }
+
+.hours { width: 100%; border-collapse: collapse; }
+.hours td { padding: 10px 0; border-bottom: 1px solid #ecdcc3; }
+.hours td:last-child { text-align: right; font-weight: 600; }
+
+/* ---------- Contact ---------- */
+.contact-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.contact-list li {
+  display: flex; align-items: center; gap: 16px;
+  background: #fff; border-radius: 14px; padding: 16px 18px; box-shadow: var(--shadow);
+}
+.contact-list .ico {
+  flex: none; width: 48px; height: 48px; border-radius: 12px; display: grid; place-items: center;
+  font-size: 1.4rem; background: var(--sand);
+}
+.contact-list small { display: block; color: var(--muted); font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; }
+.contact-list a { font-weight: 600; font-size: 1.1rem; text-decoration: none; word-break: break-word; }
+
+form label { display: block; font-weight: 600; margin: 14px 0 6px; font-size: .95rem; }
+form input, form textarea, form select {
+  width: 100%; padding: 12px 14px; border-radius: 10px; border: 2px solid #e6d5bb;
+  font: inherit; background: #fff; color: var(--ink);
+}
+form input:focus, form textarea:focus, form select:focus { outline: none; border-color: var(--blue); }
+form textarea { min-height: 120px; resize: vertical; }
+form .btn { margin-top: 18px; }
+
+/* ---------- Zelle ---------- */
+.btn-zelle { background: #6d1ed4; color: #fff; }
+.btn-instagram { background: linear-gradient(45deg, #f9a825, #e1306c 55%, #833ab4); color: #fff; }
+.zelle-card {
+  background: linear-gradient(160deg, #7b2fe0 0%, #4f12a8 100%);
+  color: #fff; border-radius: var(--radius); padding: 32px 28px; text-align: center;
+  box-shadow: 0 18px 40px rgba(79, 18, 168, .35);
+}
+.zelle-logo { font-size: 2.4rem; font-weight: 700; letter-spacing: -1px; }
+.zelle-logo sup { font-size: .9rem; }
+.zelle-label { margin: 6px 0 0; opacity: .8; text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; }
+.zelle-number { font-size: clamp(1.6rem, 5vw, 2.1rem); font-weight: 700; margin: 4px 0; }
+.zelle-name { opacity: .9; }
+.zelle-qr { width: 180px; margin: 6px auto 18px; border-radius: 12px; background: #fff; padding: 8px; }
+.zelle-fine { font-size: .8rem; opacity: .8; margin: 18px 0 0; }
+
+/* ---------- Sobre Mariela ---------- */
+.chef-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: center; }
+.chef-grid > * { min-width: 0; }
+.chef-photo { margin: 0; position: relative; }
+.chef-photo img {
+  width: 100%; border-radius: var(--radius); box-shadow: 0 22px 50px rgba(36,21,12,.28);
+  border: 6px solid #fff;
+}
+.chef-photo::before {
+  content: ""; position: absolute; inset: 18px -18px -18px 18px; z-index: -1; border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--yellow) 0 50%, var(--blue) 50% 75%, var(--red) 75%);
+}
+.chef-photo figcaption {
+  position: absolute; left: 18px; bottom: 18px; background: rgba(36,21,12,.85); color: #fff;
+  padding: 6px 14px; border-radius: 999px; font-size: .85rem; font-weight: 500;
+}
+.eyebrow-dark {
+  display: inline-block; font-size: .75rem; letter-spacing: .16em; text-transform: uppercase;
+  background: var(--sand); color: var(--wood); padding: 6px 14px; border-radius: 999px; margin-bottom: 14px; font-weight: 600;
+}
+.chef-bio h2 { font-family: var(--script); font-weight: 400; font-size: clamp(2.2rem, 5vw, 2.8rem); color: var(--wood); }
+.bio-lead { font-size: 1.15rem; color: var(--ink); font-weight: 500; }
+.chef-bio p { color: #4a3727; }
+.chef-quote {
+  margin: 24px 0; padding: 18px 22px; border-left: 5px solid var(--yellow); background: #fff;
+  border-radius: 0 12px 12px 0; font-family: var(--script); font-size: 1.5rem; color: var(--wood);
+  box-shadow: var(--shadow);
+}
+.chef-quote cite { display: block; font-family: var(--sans); font-style: normal; font-size: .9rem; color: var(--muted); margin-top: 4px; }
+@media (max-width: 820px) {
+  .chef-grid { grid-template-columns: 1fr; gap: 40px; }
+  .chef-photo { max-width: 440px; margin-inline: auto; width: calc(100% - 18px); }
+  .bio-lead { font-size: 1.05rem; }
+  .chef-quote { font-size: 1.3rem; }
+}
+
+/* ---------- CTA band ---------- */
+.cta-band {
+  background: var(--blue); color: #fff; text-align: center; padding: 56px 0;
+}
+.cta-band h2 { font-family: var(--script); font-weight: 400; font-size: clamp(2rem, 5vw, 2.8rem); }
+.cta-band .btn-row { justify-content: center; }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--wood-dark); color: #d9c7b0; padding: 40px 0 24px; font-size: .95rem; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 28px; }
+.site-footer h4 { color: #fff; margin: 0 0 10px; }
+.site-footer a { color: #f3e6d4; text-decoration: none; }
+.site-footer a:hover { color: var(--yellow); }
+.site-footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.copyright { border-top: 1px solid rgba(255,255,255,.1); margin-top: 28px; padding-top: 18px; text-align: center; font-size: .85rem; }
+@media (max-width: 820px) { .footer-grid { grid-template-columns: 1fr; } }
+
+/* Floating WhatsApp button */
+.wa-float {
+  position: fixed; right: 18px; bottom: 18px; z-index: 60;
+  width: 58px; height: 58px; border-radius: 50%; background: #25d366;
+  display: grid; place-items: center; box-shadow: 0 8px 22px rgba(0,0,0,.3);
+  transition: transform .15s;
+}
+.wa-float:hover { transform: scale(1.08); }
+.wa-float svg { width: 30px; height: 30px; fill: #fff; }
+
+/* ==========================================================
+   Phones & small tablets
+   ========================================================== */
+@media (max-width: 820px) {
+  .section { padding: 48px 0; }
+  .page-banner { padding: 40px 0 32px; }
+  .section-title { margin-bottom: 28px; }
+  .card { padding: 22px; }
+  .hero-flyer { width: 100%; max-width: min(100%, 420px); margin-inline: auto; border-width: 4px; }
+  .hero-grid > * { min-width: 0; }
+  .dish-photo { height: 190px; }
+  .cta-band { padding: 44px 0; }
+  .zelle-card { padding: 28px 20px; }
+  .menu-group { margin-bottom: 36px; }
+  .menu-group h2 { font-size: 1.9rem; }
+  .tag { margin-left: 4px; }
+}
+
+@media (max-width: 560px) {
+  /* Big, full-width buttons that are easy to tap with a thumb */
+  .btn-row { flex-direction: column; align-items: stretch; }
+  .btn-row .btn { justify-content: center; padding: 14px 20px; }
+  .card > .btn { width: 100%; justify-content: center; }
+  .hero .lead { font-size: 1.05rem; }
+  .menu-item h3 { font-size: 1.02rem; }
+  .contact-list li { padding: 14px; gap: 12px; }
+  .contact-list a { font-size: 1rem; }
+  .hours td { font-size: .92rem; }
+  /* Keep the floating WhatsApp button from covering text */
+  .wa-float { width: 52px; height: 52px; right: 14px; bottom: 14px; }
+  .wa-float svg { width: 26px; height: 26px; }
+  .site-footer { padding-bottom: 84px; }
+}
+
+/* Respect "reduce motion" settings */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .wa-float { transition: none; }
+  .btn:hover, .wa-float:hover { transform: none; }
+}

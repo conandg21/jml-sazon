@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto | JML Sazón</title>
+  <meta name="description" content="Contacta a JML Sazón por teléfono, WhatsApp o correo electrónico.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦐</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/site.js" defer></script>
+</head>
+<body>
+  <header class="site-header"></header>
+
+  <main>
+    <section class="page-banner">
+      <div class="container">
+        <h1>Contáctanos</h1>
+        <p>Estamos para servirte · We're here to help</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <div>
+          <h2 style="font-family:var(--script);font-weight:400;font-size:2.2rem;color:var(--wood)">Hablemos</h2>
+          <p>Para pedidos, eventos o cualquier pregunta, comunícate con nosotros por el medio que prefieras.</p>
+          <ul class="contact-list">
+            <li>
+              <span class="ico">📞</span>
+              <div><small>Teléfono</small><a data-phone href="tel:+12123210666">+1 (212) 321-0666</a></div>
+            </li>
+            <li>
+              <span class="ico">💬</span>
+              <div><small>WhatsApp</small><a data-whatsapp href="#">Escríbenos por WhatsApp</a></div>
+            </li>
+            <li data-instagram-wrap>
+              <span class="ico">📸</span>
+              <div><small>Instagram</small><a data-instagram href="https://www.instagram.com/jmlsazon88/">@jmlsazon88</a></div>
+            </li>
+            <li>
+              <span class="ico">✉️</span>
+              <div><small>Correo electrónico</small><a data-email href="mailto:Mariela8879@gmail.com">Mariela8879@gmail.com</a></div>
+            </li>
+            <li>
+              <span class="ico">📍</span>
+              <div><small>Zona de entrega</small><strong data-area>108th Street, Manhattan</strong></div>
+            </li>
+            <li>
+              <span class="ico">💜</span>
+              <div><small>Pagos por Zelle</small><a href="pedidos.html#zelle"><span data-zelle-phone>+1 (212) 321-0666</span></a></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>✉️ Envíanos un mensaje</h3>
+          <p class="sub">Se abrirá tu correo o WhatsApp con el mensaje listo.</p>
+          <form data-send="email">
+            <label for="c-nombre">Nombre</label>
+            <input id="c-nombre" name="Nombre" required autocomplete="name">
+
+            <label for="c-tel">Teléfono (opcional)</label>
+            <input id="c-tel" name="Teléfono" type="tel" autocomplete="tel">
+
+            <label for="c-msg">Mensaje</label>
+            <textarea id="c-msg" name="Mensaje" required></textarea>
+
+            <div class="btn-row">
+              <button class="btn btn-blue" type="submit" value="email">Enviar por correo</button>
+              <button class="btn btn-whatsapp" type="submit" value="whatsapp">Enviar por WhatsApp</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"></footer>
+</body>
+</html>

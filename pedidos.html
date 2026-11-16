@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pedidos | JML Sazón</title>
+  <meta name="description" content="Cómo hacer tu pedido de ceviche o encebollado con JML Sazón.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦐</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/site.js" defer></script>
+</head>
+<body>
+  <header class="site-header"></header>
+
+  <main>
+    <section class="page-banner">
+      <div class="container">
+        <h1>Haz tu Pedido</h1>
+        <p>Rápido, fácil y directo con nosotros</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <div>
+          <h2 style="font-family:var(--script);font-weight:400;font-size:2.2rem;color:var(--wood)">¿Cómo ordenar?</h2>
+          <div class="steps">
+            <div class="step"><div><h3>Escoge tu plato</h3><p>Revisa el <a href="menu.html">menú</a> y decide qué se te antoja.</p></div></div>
+            <div class="step"><div><h3>Escríbenos o llámanos</h3><p>Mándanos un WhatsApp o llámanos con tu pedido, nombre y dirección.</p></div></div>
+            <div class="step"><div><h3>Confirmamos</h3><p>Te confirmamos el total y la hora de entrega o recogida.</p></div></div>
+            <div class="step"><div><h3>¡A disfrutar!</h3><p>Recibe tu comida fresquita y buen provecho. 😋</p></div></div>
+          </div>
+
+          <h3 style="margin-top:40px">🕒 Horario</h3>
+          <!-- ✏️ Change to her real hours. -->
+          <table class="hours">
+            <tr><td>Viernes</td><td>10:00 am – 6:00 pm</td></tr>
+            <tr><td>Sábado</td><td>9:00 am – 6:00 pm</td></tr>
+            <tr><td>Domingo</td><td>9:00 am – 3:00 pm</td></tr>
+            <tr><td>Lunes – Jueves</td><td>Solo pedidos por encargo</td></tr>
+          </table>
+          <p class="note" style="margin-top:20px">📍 Entregas en <strong data-area>108th Street, Manhattan</strong>. Para pedidos grandes, avísanos con 1–2 días de anticipación.</p>
+        </div>
+
+        <div class="card">
+          <h3>📝 Arma tu pedido</h3>
+          <p class="sub">Llena el formulario y se abrirá WhatsApp o tu correo con el mensaje listo para enviar.</p>
+          <form data-send="whatsapp">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="Nombre" required autocomplete="name">
+
+            <label for="plato">Plato</label>
+            <select id="plato" name="Plato" required>
+              <option value="">— Escoge —</option>
+              <option>Ceviche de Camarón</option>
+              <option>Ceviche de Pescado</option>
+              <option>Ceviche Mixto</option>
+              <option>Ceviche Familiar</option>
+              <option>Encebollado de Pescado</option>
+              <option>Encebollado Mixto</option>
+              <option>Encebollado Familiar</option>
+            </select>
+
+            <label for="cantidad">Cantidad</label>
+            <input id="cantidad" name="Cantidad" type="number" min="1" value="1">
+
+            <label for="entrega">Entrega o recogida</label>
+            <select id="entrega" name="Entrega">
+              <option>Entrega a domicilio</option>
+              <option>Recoger</option>
+            </select>
+
+            <label for="notas">Dirección / notas</label>
+            <textarea id="notas" name="Notas" placeholder="Dirección, hora preferida, extras (chifles, canguil, ají)…"></textarea>
+
+            <div class="btn-row">
+              <button class="btn btn-whatsapp" type="submit" value="whatsapp">Enviar por WhatsApp</button>
+              <button class="btn btn-blue" type="submit" value="email">Enviar por correo</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="zelle">
+      <div class="container grid-2" style="align-items:center">
+        <div>
+          <h2 style="font-family:var(--script);font-weight:400;font-size:2.2rem;color:var(--wood)">Paga con Zelle</h2>
+          <p>Aceptamos pagos por <strong>Zelle</strong>. Primero confirma tu pedido con nosotros y luego:</p>
+          <div class="steps">
+            <div class="step"><div><h3>Abre tu banco</h3><p>Entra a la app de tu banco y busca <strong>Zelle</strong> → <em>Enviar</em>.</p></div></div>
+            <div class="step"><div><h3>Envía a nuestro número</h3><p>Usa el número <strong data-zelle-phone>+1 (212) 321-0666</strong> y verifica que aparezca el nombre <strong data-zelle-name>Mariela</strong>.</p></div></div>
+            <div class="step"><div><h3>Escribe tu nombre</h3><p>En la nota (memo) pon tu nombre y tu pedido.</p></div></div>
+            <div class="step"><div><h3>Mándanos el comprobante</h3><p>Envíanos una captura del pago por WhatsApp y ¡listo!</p></div></div>
+          </div>
+        </div>
+
+        <div class="zelle-card">
+          <div class="zelle-logo">Zelle<sup>®</sup></div>
+          <p class="zelle-label">Enviar pago a</p>
+          <p class="zelle-number" data-zelle-phone>+1 (212) 321-0666</p>
+          <p class="zelle-name">Nombre: <strong data-zelle-name>Mariela</strong></p>
+          <!-- Optional: save her Zelle QR code from her bank app as images/zelle-qr.png and it shows up here automatically. -->
+          <img class="zelle-qr" src="images/zelle-qr.png" alt="Código QR de Zelle" onerror="this.remove()">
+          <div class="btn-row" style="justify-content:center">
+            <button class="btn btn-primary" type="button" data-zelle-copy>📋 Copiar número</button>
+            <a class="btn btn-whatsapp" data-whatsapp data-wa-msg="¡Hola! Ya hice el pago por Zelle. Aquí está mi comprobante:" href="#">Ya pagué — enviar comprobante</a>
+          </div>
+          <p class="zelle-fine">Solo envía dinero cuando tu pedido esté confirmado. Zelle no tiene reembolsos, así que revisa bien el nombre antes de enviar.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"></footer>
+</body>
+</html>
