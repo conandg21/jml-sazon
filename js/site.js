@@ -61,6 +61,7 @@ function buildFooter() {
         <h4>Contacto</h4>
         <ul>
           <li>📞 <a data-phone></a></li>
+          <li>🕒 Domingos, 9 am – 8 pm</li>
           <li>✉️ <a data-email></a></li>
           <li>💜 <a href="pedidos.html#zelle">Pagar con Zelle</a></li>
           ${ig}
